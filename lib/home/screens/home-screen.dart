@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_test_task/about/screens/about-screen.dart';
 import 'package:flutter_test_task/widgets/action-filled-button.dart';
 import 'package:flutter_test_task/widgets/image-slider.dart';
 import 'package:flutter_test_task/widgets/training-place-text.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -91,10 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: ActionFilledButton(
                   text: 'Booking',
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => const AboutScreen()),
-                    );
+                    context.go('/about');
                   },
                 ),
               ),

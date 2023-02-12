@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_test_task/saved/screens/saved-screen.dart';
 import 'package:flutter_test_task/widgets/action-filled-button.dart';
 import 'package:flutter_test_task/widgets/image-slider.dart';
 import 'package:flutter_test_task/widgets/training-place-text.dart';
 import 'package:flutter_test_task/widgets/user-label.dart';
+import 'package:go_router/go_router.dart';
 
 class AboutScreen extends StatefulWidget {
   const AboutScreen({Key? key}) : super(key: key);
@@ -117,9 +117,7 @@ class _AboutScreenState extends State<AboutScreen> {
                   children: [
                     Expanded(
                       child: OutlinedButton(
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
+                        onPressed: () => context.go('/home'),
                         style: ButtonStyle(
                           minimumSize: MaterialStateProperty.all(Size.fromHeight(48)),
                           shape: MaterialStateProperty.all(
@@ -144,10 +142,7 @@ class _AboutScreenState extends State<AboutScreen> {
                       child: ActionFilledButton(
                         text: 'Add calendar',
                         onPressed: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => const SavedScreen()),
-                          );
+                          context.go('/saved');
                           final snackBar = SnackBar(
                             padding: EdgeInsets.only(top: 16, bottom: 23),
                             backgroundColor: Color(0xffF5F5F5),
