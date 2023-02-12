@@ -1,13 +1,22 @@
 import 'package:flutter/material.dart';
 
 class TrainingPlaceText extends StatelessWidget {
+  final String trainingTime;
+  final String address;
+
+  const TrainingPlaceText({
+    Key? key,
+    required this.trainingTime,
+    required this.address,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          '15.02 | 14:00 (55) хв',
+          trainingTime,
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w400,
@@ -16,7 +25,7 @@ class TrainingPlaceText extends StatelessWidget {
         ),
         SizedBox(height: 3),
         Text(
-          'Zhylianska St, 41А, Kyiv, 01033',
+          address,
           style: TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w400,
