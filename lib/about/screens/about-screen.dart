@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_task/saved/screens/saved-screen.dart';
 import 'package:flutter_test_task/widgets/action-filled-button.dart';
 import 'package:flutter_test_task/widgets/image-slider.dart';
 import 'package:flutter_test_task/widgets/training-place-text.dart';
@@ -29,18 +30,45 @@ class _AboutScreenState extends State<AboutScreen> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Fitboxing',
-                          style: TextStyle(
-                            fontSize: 32,
-                            fontWeight: FontWeight.w800,
-                            color: Color(0xff03010D),
-                          ),
-                        ),
-                        SizedBox(height: 19),
-                        TrainingPlaceText(
-                          trainingTime: '15.02 | 14:00 (55) хв',
-                          address: 'Zhylianska St, 41А, Kyiv, 01033',
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Fitboxing',
+                                  style: TextStyle(
+                                    fontSize: 32,
+                                    fontWeight: FontWeight.w800,
+                                    color: Color(0xff03010D),
+                                  ),
+                                ),
+                                TrainingPlaceText(
+                                  trainingTime: '15.02 | 14:00 (55) хв',
+                                  address: 'Zhylianska St, 41А, Kyiv, 01033',
+                                ),
+                              ],
+                            ),
+                            Column(
+                              children: [
+                                Icon(
+                                  Icons.ac_unit,
+                                  color: Colors.orange,
+                                  size: 16,
+                                ),
+                                Text(
+                                  'Залишилося\n2 місця',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color(0xff03010D),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                         SizedBox(height: 16),
                         UserLabel(
@@ -115,7 +143,29 @@ class _AboutScreenState extends State<AboutScreen> {
                     Expanded(
                       child: ActionFilledButton(
                         text: 'Add calendar',
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const SavedScreen()),
+                          );
+                          final snackBar = SnackBar(
+                            padding: EdgeInsets.only(top: 16, bottom: 23),
+                            backgroundColor: Color(0xffF5F5F5),
+                            closeIconColor: Color(0xff03010D),
+                            duration: Duration(minutes: 1),
+                            showCloseIcon: true,
+                            content: const Text(
+                              'Saved',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                                color: Color(0xff03010D),
+                              ),
+                            ),
+                          );
+                          ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                        },
                       ),
                     ),
                   ],
