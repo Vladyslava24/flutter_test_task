@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_task/constants/border-side-radius.dart';
+import 'package:flutter_test_task/constants/button-size.dart';
+import 'package:flutter_test_task/constants/info-constants.dart';
+import 'package:flutter_test_task/constants/insets.dart';
+import 'package:flutter_test_task/constants/sized-box-size.dart';
 import 'package:flutter_test_task/widgets/action-filled-button.dart';
 import 'package:flutter_test_task/widgets/image-slider.dart';
 import 'package:flutter_test_task/widgets/training-place-text.dart';
@@ -16,6 +21,7 @@ class _AboutScreenState extends State<AboutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffF5F5F5),
       body: Column(
         children: [
           Expanded(
@@ -23,10 +29,10 @@ class _AboutScreenState extends State<AboutScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ImageSlider(),
-                  SizedBox(height: 16),
+                  const ImageSlider(),
+                  const SizedBox(height: SizedBoxSize.mediumSize),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: Insets.paddingMedium),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -35,9 +41,9 @@ class _AboutScreenState extends State<AboutScreen> {
                           children: [
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
+                              children: const [
                                 Text(
-                                  'Fitboxing',
+                                  InfoConstants.fitboxing,
                                   style: TextStyle(
                                     fontSize: 32,
                                     fontWeight: FontWeight.w800,
@@ -45,13 +51,13 @@ class _AboutScreenState extends State<AboutScreen> {
                                   ),
                                 ),
                                 TrainingPlaceText(
-                                  trainingTime: '15.02 | 14:00 (55) хв',
-                                  address: 'Zhylianska St, 41А, Kyiv, 01033',
+                                  trainingTime: InfoConstants.trainingTime,
+                                  address: InfoConstants.address,
                                 ),
                               ],
                             ),
                             Column(
-                              children: [
+                              children: const [
                                 Icon(
                                   Icons.ac_unit,
                                   color: Colors.orange,
@@ -70,26 +76,23 @@ class _AboutScreenState extends State<AboutScreen> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 16),
-                        UserLabel(
-                          avatar: 'asset/images/avatar.png',
-                          userName: 'Дмитро Казаков',
-                          training: 'Boxing',
+                        const SizedBox(height: SizedBoxSize.mediumSize),
+                        const UserLabel(
+                          avatar: InfoConstants.avatarPath,
+                          userName: InfoConstants.username,
+                          training: InfoConstants.boxing,
                         ),
-                        SizedBox(height: 16),
-                        Text(
-                          'Відчуй і збільш свою силу на боксінгу.\n'
-                          'Розкріпачуйся в темному залі під\nпотужний біт хіп-хопу. '
-                          'Став удар на\nгрушах',
+                        const SizedBox(height: SizedBoxSize.mediumSize),
+                        const Text(
+                          InfoConstants.generalInfo,
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
                           ),
                         ),
-                        SizedBox(height: 26),
-                        Text(
-                          'На тренування необхідно взяти будь-яку\nспортивну форму, що не сковує рухів,\nкросівки та гелеві бинти, придбати\nможна в студії за 500 грн.\n\n'
-                          'Ми дбаємо про Вашу безпеку, тому не\nдопускаємо до занять у разі запізнення\nбільш, ніж на 5 хвилин з початку\nтренування.',
+                        const SizedBox(height: 26),
+                        const Text(
+                          InfoConstants.trainingInfo,
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
@@ -104,13 +107,13 @@ class _AboutScreenState extends State<AboutScreen> {
           ),
           Column(
             children: [
-              Divider(
+              const Divider(
                 height: 0,
                 color: Color(0xff9B99A0),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: SizedBoxSize.mediumSize),
               Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
+                padding: const EdgeInsets.symmetric(horizontal: Insets.paddingMedium),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -119,15 +122,18 @@ class _AboutScreenState extends State<AboutScreen> {
                       child: OutlinedButton(
                         onPressed: () => context.go('/home'),
                         style: ButtonStyle(
-                          minimumSize: MaterialStateProperty.all(Size.fromHeight(48)),
+                          minimumSize: MaterialStateProperty.all(
+                            const Size.fromHeight(ButtonSize.actionButtonHeight),
+                          ),
                           shape: MaterialStateProperty.all(
                             RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8),
+                              borderRadius: BorderRadius.circular(BorderSideRadius.borderRadius),
                             ),
                           ),
-                          side: MaterialStateProperty.all(BorderSide(color: Color(0xff03010D))),
+                          side:
+                              MaterialStateProperty.all(const BorderSide(color: Color(0xff03010D))),
                         ),
-                        child: Text(
+                        child: const Text(
                           'Back',
                           style: TextStyle(
                             fontSize: 16,
@@ -137,19 +143,19 @@ class _AboutScreenState extends State<AboutScreen> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: SizedBoxSize.smallSize),
                     Expanded(
                       child: ActionFilledButton(
                         text: 'Add calendar',
                         onPressed: () {
                           context.go('/saved');
-                          final snackBar = SnackBar(
-                            padding: EdgeInsets.only(top: 16, bottom: 23),
+                          const snackBar = SnackBar(
+                            padding: EdgeInsets.only(top: Insets.paddingMedium, bottom: 23),
                             backgroundColor: Color(0xffF5F5F5),
                             closeIconColor: Color(0xff03010D),
                             duration: Duration(minutes: 1),
                             showCloseIcon: true,
-                            content: const Text(
+                            content: Text(
                               'Saved',
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -166,7 +172,7 @@ class _AboutScreenState extends State<AboutScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 23),
+              const SizedBox(height: 23),
             ],
           ),
         ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_task/constants/border-side-radius.dart';
+import 'package:flutter_test_task/constants/button-size.dart';
 
 class ActionFilledButton extends StatelessWidget {
   final String text;
@@ -15,15 +17,18 @@ class ActionFilledButton extends StatelessWidget {
     return FilledButton(
       onPressed: onPressed,
       style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(Color(0xff03010D)),
-        minimumSize: MaterialStateProperty.all(Size.fromHeight(48)),
+        backgroundColor: MaterialStateProperty.all(const Color(0xff03010D)),
+        minimumSize:
+            MaterialStateProperty.all(const Size.fromHeight(ButtonSize.actionButtonHeight)),
         shape: MaterialStateProperty.all(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(BorderSideRadius.borderRadius),
+          ),
         ),
       ),
       child: Text(
         text,
-        style: TextStyle(
+        style: const TextStyle(
           fontSize: 16,
           fontWeight: FontWeight.w500,
         ),

@@ -17,16 +17,16 @@ class TrainingPlaceText extends StatelessWidget {
       children: [
         Text(
           trainingTime,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w400,
             color: Color(0xff03010D),
           ),
         ),
-        SizedBox(height: 3),
+        const SizedBox(height: 3),
         Text(
           address,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeight.w400,
             color: Color(0xff9B99A0),

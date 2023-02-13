@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_task/constants/border-side-radius.dart';
+import 'package:flutter_test_task/constants/insets.dart';
+import 'package:flutter_test_task/constants/sized-box-size.dart';
 
 class UserLabel extends StatelessWidget {
   final String avatar;
@@ -15,13 +18,13 @@ class UserLabel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 16,
+      padding: const EdgeInsets.symmetric(
+        horizontal: Insets.paddingMedium,
         vertical: 12,
       ),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.all(Radius.circular(8)),
+        borderRadius: BorderRadius.all(Radius.circular(BorderSideRadius.borderRadius)),
       ),
       child: Row(
         children: [
@@ -30,13 +33,13 @@ class UserLabel extends StatelessWidget {
             backgroundImage: AssetImage(avatar),
             backgroundColor: Colors.white,
           ),
-          SizedBox(width: 8),
+          const SizedBox(width: SizedBoxSize.smallSize),
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 userName,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                   color: Color(0xff03010D),
@@ -44,7 +47,7 @@ class UserLabel extends StatelessWidget {
               ),
               Text(
                 training,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.w400,
                   color: Color(0xff9B99A0),

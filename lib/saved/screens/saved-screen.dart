@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_test_task/constants/info-constants.dart';
+import 'package:flutter_test_task/constants/insets.dart';
+import 'package:flutter_test_task/constants/sized-box-size.dart';
 import 'package:flutter_test_task/widgets/image-slider.dart';
 import 'package:flutter_test_task/widgets/training-place-text.dart';
 import 'package:flutter_test_task/widgets/user-label.dart';
@@ -14,6 +17,7 @@ class _SavedScreenState extends State<SavedScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffF5F5F5),
       body: Column(
         children: [
           Expanded(
@@ -21,37 +25,35 @@ class _SavedScreenState extends State<SavedScreen> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  ImageSlider(),
-                  SizedBox(height: 16),
+                  const ImageSlider(),
+                  const SizedBox(height: SizedBoxSize.mediumSize),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
+                    padding: const EdgeInsets.symmetric(horizontal: Insets.paddingMedium),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
+                      children: const [
                         Text(
-                          'Fitboxing',
+                          InfoConstants.fitboxing,
                           style: TextStyle(
                             fontSize: 32,
                             fontWeight: FontWeight.w800,
                             color: Color(0xff03010D),
                           ),
                         ),
-                        SizedBox(height: 19),
+                        SizedBox(height: SizedBoxSize.largeSize),
                         TrainingPlaceText(
-                          trainingTime: '15.02 | 14:00 (55) хв',
-                          address: 'Zhylianska St, 41А, Kyiv, 01033',
+                          trainingTime: InfoConstants.trainingTime,
+                          address: InfoConstants.address,
                         ),
-                        SizedBox(height: 16),
+                        SizedBox(height: SizedBoxSize.mediumSize),
                         UserLabel(
-                          avatar: 'asset/images/avatar.png',
-                          userName: 'Дмитро Казаков',
-                          training: 'Boxing',
+                          avatar: InfoConstants.avatarPath,
+                          userName: InfoConstants.username,
+                          training: InfoConstants.boxing,
                         ),
-                        SizedBox(height: 16),
+                        SizedBox(height: SizedBoxSize.mediumSize),
                         Text(
-                          'Відчуй і збільш свою силу на боксінгу.\n'
-                          'Розкріпачуйся в темному залі під\nпотужний біт хіп-хопу. '
-                          'Став удар на\nгрушах',
+                          InfoConstants.generalInfo,
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
@@ -59,7 +61,7 @@ class _SavedScreenState extends State<SavedScreen> {
                         ),
                         SizedBox(height: 24),
                         Text(
-                          'Важлива інформація',
+                          InfoConstants.importantInfo,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
@@ -68,8 +70,7 @@ class _SavedScreenState extends State<SavedScreen> {
                         ),
                         SizedBox(height: 30),
                         Text(
-                          'На тренування необхідно взяти будь-яку\nспортивну форму, що не сковує рухів,\nкросівки та гелеві бинти, придбати\nможна в студії за 500 грн.\n\n'
-                          'Ми дбаємо про Вашу безпеку, тому не\nдопускаємо до занять у разі запізнення\nбільш, ніж на 5 хвилин з початку\nтренування.',
+                          InfoConstants.trainingInfo,
                           style: TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w400,
@@ -83,7 +84,7 @@ class _SavedScreenState extends State<SavedScreen> {
             ),
           ),
           Column(
-            children: [
+            children: const [
               Divider(
                 height: 0,
                 color: Color(0xff9B99A0),

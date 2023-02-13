@@ -41,15 +41,13 @@ class _ImageSliderState extends ConsumerState<ImageSlider> {
                     },
                   ),
                   items: images
-                      .map((item) => Container(
-                            child: Center(
-                                child: Image.network(
-                              item,
-                              fit: BoxFit.cover,
-                              width: double.infinity,
-                              height: 282,
-                            )),
-                          ))
+                      .map((item) => Center(
+                              child: Image.network(
+                            item,
+                            fit: BoxFit.cover,
+                            width: double.infinity,
+                            height: 282,
+                          )))
                       .toList(),
                 ),
                 Positioned(
@@ -63,7 +61,7 @@ class _ImageSliderState extends ConsumerState<ImageSlider> {
                         child: Container(
                           width: 8,
                           height: 8,
-                          margin: EdgeInsets.symmetric(horizontal: 2),
+                          margin: const EdgeInsets.symmetric(horizontal: 2),
                           decoration: BoxDecoration(
                               shape: BoxShape.circle,
                               color: _current == entry.key ? Colors.white : null,

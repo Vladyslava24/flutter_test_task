@@ -4,7 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 void main() {
   runApp(
-    ProviderScope(child: const MyApp()),
+    const ProviderScope(child: MyApp()),
   );
 }
 
@@ -24,6 +24,7 @@ class _MyAppState extends ConsumerState<MyApp> {
       routeInformationProvider: router.routeInformationProvider,
       routerDelegate: router.routerDelegate,
       title: 'Flutter Test Task',
+      theme: ThemeData(fontFamily: 'Roboto'),
     );
   }
 }
